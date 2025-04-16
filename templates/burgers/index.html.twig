@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BurgersController!{% endblock %}
+
+
+{% block body %}
+
+
+<h1>Tous les burgers</h1>
+    {% for burger in burgers %}
+
+        <a href="{{ path('app_burgers_edit', {id: burger.id}) }}">changer le burger</a>
+
+    <p>Le {{ burger.name }}</p>
+    <p>Ingrédients : {{ burger.filling }}</p>
+        <a href="{{ path('app_burger_show', {id: burger.id}) }}"> voir le burger</a>
+        <hr>
+    {% endfor %}
+{% endblock %}
