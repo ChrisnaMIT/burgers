@@ -1,0 +1,16 @@
+{% extends ('base.html.twig') %}
+
+{% block body %}
+
+<h1> le {{ burger.name }}</h1>
+    <p>{{ burger.filling }}</p>
+    <a href="{{ path ('app_burgers') }}">Retour au menu </a>
+
+    <form method="post" action="{{ path('app_burgers_delete', {id: burger.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ burger.id) }}">
+        <br>
+        <button type="submit">Suppirme ce burger</button>
+    </form>
+
+
+{% endblock %}
